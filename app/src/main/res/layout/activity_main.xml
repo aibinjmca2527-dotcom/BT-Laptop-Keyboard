@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_keyboard_dark"
+    android:orientation="vertical"
+    android:paddingStart="4dp"
+    android:paddingTop="2dp"
+    android:paddingEnd="4dp"
+    android:paddingBottom="3dp">
+
+    <!-- Minimal Top Bar: Only Status on Left, Settings on Right -->
+    <LinearLayout
+        android:id="@+id/layoutTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="6dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="3dp">
+
+        <!-- Status indicator (Red = Disconnected, Green = Connected) -->
+        <TextView
+            android:id="@+id/tvStatusBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:background="@drawable/bg_status_badge"
+            android:clickable="true"
+            android:elevation="1dp"
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="@string/status_not_connected"
+            android:textColor="@color/status_disconnected"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Clean Settings Button -->
+        <ImageView
+            android:id="@+id/btnOpenSettings"
+            android:layout_width="32dp"
+            android:layout_height="28dp"
+            android:background="@drawable/bg_key_selector"
+            android:clickable="true"
+            android:elevation="1dp"
+            android:focusable="true"
+            android:padding="5dp"
+            android:src="@drawable/ic_settings"
+            app:tint="@color/text_secondary" />
+    </LinearLayout>
+
+    <!-- Full-Screen Keyboard Chassis / Deck -->
+    <LinearLayout
+        android:id="@+id/keyboardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_keyboard_container"
+        android:orientation="vertical">
+
+        <!-- Row 0: Function Keys (Esc, F1 - F12, PrtSc, Del) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:orientation="horizontal"
+            android:weightSum="15.2">
+
+            <TextView
+                android:id="@+id/key_esc"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:text="Esc"
+                android:textColor="@color/key_accent" />
+
+            <TextView android:id="@+id/key_f1" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F1" />
+            <TextView android:id="@+id/key_f2" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F2" />
+            <TextView android:id="@+id/key_f3" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F3" />
+            <TextView android:id="@+id/key_f4" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F4" />
+            <TextView android:id="@+id/key_f5" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F5" />
+            <TextView android:id="@+id/key_f6" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F6" />
+            <TextView android:id="@+id/key_f7" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F7" />
+            <TextView android:id="@+id/key_f8" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F8" />
+            <TextView android:id="@+id/key_f9" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F9" />
+            <TextView android:id="@+id/key_f10" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F10" />
+            <TextView android:id="@+id/key_f11" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F11" />
+            <TextView android:id="@+id/key_f12" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F12" />
+            <TextView android:id="@+id/key_prntscrn" style="@style/KeyFunctionStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="PrtSc" />
+
+            <TextView
+                android:id="@+id/key_delete"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:text="Del" />
+        </LinearLayout>
+
+        <!-- Row 1: Number Row (`~`, 1! - 8*, 9(, 0), -_, =+, Backspace, Home) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="2.5dp"
+            android:layout_weight="1.0"
+            android:orientation="horizontal"
+            android:weightSum="15.2">
+
+            <TextView android:id="@+id/key_grave" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="` ~" />
+            <TextView android:id="@+id/key_1" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="1 !" />
+            <TextView android:id="@+id/key_2" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="2 @" />
+            <TextView android:id="@+id/key_3" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="3 #" />
+            <TextView android:id="@+id/key_4" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="4 $" />
+            <TextView android:id="@+id/key_5" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="5 %" />
+            <TextView android:id="@+id/key_6" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="6 ^" />
+            <TextView android:id="@+id/key_7" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="7 &amp;" />
+            <TextView android:id="@+id/key_8" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="8 *" />
+            <!-- Keys 9 ( and 0 ) specifically highlighted -->
+            <TextView android:id="@+id/key_9" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="9 (" />
+            <TextView android:id="@+id/key_0" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="0 )" />
+            <TextView android:id="@+id/key_minus" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="- _" />
+            <TextView android:id="@+id/key_equal" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="= +" />
+
+            <TextView
+                android:id="@+id/key_backspace"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.6"
+                android:text="⌫ Back" />
+
+            <TextView
+                android:id="@+id/key_home"
+                style="@style/KeyFunctionStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:text="Home" />
+        </LinearLayout>
+
+        <!-- Row 2: QWERTY Row (Tab, Q-P, [{, ]}, \|, PgUp) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="2.5dp"
+            android:layout_weight="1.0"
+            android:orientation="horizontal"
+            android:weightSum="15.2">
+
+            <TextView
+                android:id="@+id/key_tab"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.4"
+                android:text="Tab ⇥" />
+
+            <TextView android:id="@+id/key_q" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="Q" />
+            <TextView android:id="@+id/key_w" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="W" />
+            <TextView android:id="@+id/key_e" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="E" />
+            <TextView android:id="@+id/key_r" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="R" />
+            <TextView android:id="@+id/key_t" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="T" />
+            <TextView android:id="@+id/key_y" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="Y" />
+            <TextView android:id="@+id/key_u" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="U" />
+            <TextView android:id="@+id/key_i" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="I" />
+            <TextView android:id="@+id/key_o" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="O" />
+            <TextView android:id="@+id/key_p" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="P" />
+            <TextView android:id="@+id/key_leftbrace" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="[ {" />
+            <TextView android:id="@+id/key_rightbrace" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="] }" />
+
+            <TextView
+                android:id="@+id/key_backslash"
+                style="@style/KeyStandardStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:text="\\ |" />
+
+            <TextView
+                android:id="@+id/key_pageup"
+                style="@style/KeyFunctionStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:text="PgUp" />
+        </LinearLayout>
+
+        <!-- Row 3: Home Row (Caps, A-L, ;:, '", Enter, PgDn) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="2.5dp"
+            android:layout_weight="1.0"
+            android:orientation="horizontal"
+            android:weightSum="15.2">
+
+            <TextView
+                android:id="@+id/key_capslock"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.6"
+                android:text="Caps ⇪" />
+
+            <TextView android:id="@+id/key_a" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="A" />
+            <TextView android:id="@+id/key_s" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="S" />
+            <TextView android:id="@+id/key_d" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="D" />
+            <TextView android:id="@+id/key_f" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="F" />
+            <TextView android:id="@+id/key_g" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="G" />
+            <TextView android:id="@+id/key_h" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="H" />
+            <TextView android:id="@+id/key_j" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="J" />
+            <TextView android:id="@+id/key_k" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="K" />
+            <TextView android:id="@+id/key_l" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="L" />
+            <TextView android:id="@+id/key_semicolon" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="; :" />
+            <TextView android:id="@+id/key_apostrophe" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="\' \&quot;" />
+
+            <TextView
+                android:id="@+id/key_enter"
+                style="@style/KeyEnterStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.0"
+                android:text="Enter ↵" />
+
+            <TextView
+                android:id="@+id/key_pagedown"
+                style="@style/KeyFunctionStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:text="PgDn" />
+        </LinearLayout>
+
+        <!-- Row 4: Shift Row (Shift L, Z-M, ,<, .>, /?, Shift R, End) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="2.5dp"
+            android:layout_weight="1.0"
+            android:orientation="horizontal"
+            android:weightSum="15.2">
+
+            <TextView
+                android:id="@+id/key_shift_left"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.9"
+                android:text="Shift ⇧" />
+
+            <TextView android:id="@+id/key_z" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="Z" />
+            <TextView android:id="@+id/key_x" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="X" />
+            <TextView android:id="@+id/key_c" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="C" />
+            <TextView android:id="@+id/key_v" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="V" />
+            <TextView android:id="@+id/key_b" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="B" />
+            <TextView android:id="@+id/key_n" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="N" />
+            <TextView android:id="@+id/key_m" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="M" />
+            <TextView android:id="@+id/key_comma" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text=", &lt;" />
+            <TextView android:id="@+id/key_dot" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text=". &gt;" />
+            <TextView android:id="@+id/key_slash" style="@style/KeyStandardStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:text="/ ?" />
+
+            <TextView
+                android:id="@+id/key_shift_right"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2.1"
+                android:text="Shift ⇧" />
+
+            <TextView
+                android:id="@+id/key_end"
+                style="@style/KeyFunctionStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:text="End" />
+        </LinearLayout>
+
+        <!-- Row 5: Bottom Modifier & Navigation Row (Ctrl, Fn, Win/Cmd, Alt, Space, Alt, Ctrl, Ins, ◀, ▲, ▼, ▶) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="2.5dp"
+            android:layout_weight="1.0"
+            android:orientation="horizontal"
+            android:weightSum="15.2">
+
+            <TextView
+                android:id="@+id/key_ctrl_left"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:text="Ctrl" />
+
+            <TextView
+                android:id="@+id/key_fn"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.9"
+                android:text="Fn"
+                android:textColor="@color/key_accent" />
+
+            <TextView
+                android:id="@+id/key_win"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Win" />
+
+            <TextView
+                android:id="@+id/key_alt_left"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Alt" />
+
+            <TextView
+                android:id="@+id/key_space"
+                style="@style/KeyStandardStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5.5"
+                android:text="Space"
+                android:textColor="@color/text_muted" />
+
+            <TextView
+                android:id="@+id/key_alt_right"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Alt" />
+
+            <TextView
+                android:id="@+id/key_ctrl_right"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:text="Ctrl" />
+
+            <TextView
+                android:id="@+id/key_insert"
+                style="@style/KeyFunctionStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:text="Ins" />
+
+            <TextView
+                android:id="@+id/key_arrow_left"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.75"
+                android:text="◀" />
+
+            <TextView
+                android:id="@+id/key_arrow_up"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.75"
+                android:text="▲" />
+
+            <TextView
+                android:id="@+id/key_arrow_down"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.75"
+                android:text="▼" />
+
+            <TextView
+                android:id="@+id/key_arrow_right"
+                style="@style/KeyModifierStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.75"
+                android:text="▶" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

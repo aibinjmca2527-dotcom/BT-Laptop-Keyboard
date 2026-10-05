@@ -1,0 +1,37 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Keyboard Chassis / Base in Slate Gray -->
+    <path
+        android:fillColor="#1E293B"
+        android:pathData="M24,36 h60 c3.3,0 6,2.7 6,6 v32 c0,3.3 -2.7,6 -6,6 H24 c-3.3,0 -6,-2.7 -6,-6 V42 c0,-3.3 2.7,-6 6,-6 z"/>
+
+    <!-- Key Row 1 -->
+    <path
+        android:fillColor="#F8FAFC"
+        android:pathData="M27,42h8v6h-8z M38,42h8v6h-8z M49,42h8v6h-8z M60,42h8v6h-8z M71,42h10v6h-10z"/>
+
+    <!-- Key Row 2 -->
+    <path
+        android:fillColor="#F8FAFC"
+        android:pathData="M27,51h9v6h-9z M39,51h8v6h-8z M50,51h8v6h-8z M61,51h8v6h-8z M72,51h9v6h-9z"/>
+
+    <!-- Key Row 3 & Spacebar -->
+    <path
+        android:fillColor="#F8FAFC"
+        android:pathData="M27,60h11v6h-11z M41,60h26v6h-26z M70,60h11v6h-11z"/>
+
+    <!-- Bluetooth Badge Circle (Top Right) -->
+    <path
+        android:fillColor="#2563EB"
+        android:pathData="M81,31m-13,0a13,13 0,1 1,26 0a13,13 0,1 1,-26 0"/>
+
+    <!-- Bluetooth Emblem inside Badge -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M83.8,31l-3.3,-3.3v4.3l-2.4,-1.8-0.8,0.8 2.8,2 -2.8,2 0.8,0.8 2.4,-1.8v4.3l3.3,-3.3-2.1,-2.1 2.1,-2.1zM81.5,29.9l1.1,1.1-1.1,0.8v-1.9zm1.1,4.3l-1.1,1.1v-1.9l1.1,0.8z"/>
+
+</vector>

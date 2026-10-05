@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">BT Laptop Keyboard</string>
+    <string name="app_version">1.0.0</string>
+    <string name="developer_name">Aibin Joseph</string>
+
+    <!-- Header & Status -->
+    <string name="status_not_connected">🔴 Disconnected</string>
+    <string name="status_connecting_state">🟡 Connecting...</string>
+    <string name="status_connected_to">🟢 Connected: %1$s</string>
+    <string name="status_tap_to_connect">Tap to connect your laptop</string>
+    <string name="action_connect">Connect</string>
+    <string name="action_disconnect">Disconnect</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Disconnected Alert Dialog -->
+    <string name="dialog_disconnected_title">Laptop Not Connected</string>
+    <string name="dialog_disconnected_message">Your phone is not yet connected to your laptop. Connect via Bluetooth in Settings to send keystrokes directly to Windows, macOS, or Linux.</string>
+    <string name="action_open_settings">Open Bluetooth Settings</string>
+    <string name="action_dismiss">Dismiss</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Keyboard Settings</string>
+    <string name="section_bluetooth">Bluetooth Connection</string>
+    <string name="bluetooth_toggle_title">Bluetooth Adapter</string>
+    <string name="bluetooth_toggle_desc">Enable or disable Bluetooth</string>
+    <string name="bluetooth_paired_devices">Paired Laptops &amp; Devices</string>
+    <string name="bluetooth_scan_title">Available Devices</string>
+    <string name="btn_scan_devices">Scan for Devices</string>
+    <string name="btn_stop_scan">Stop Scanning</string>
+    <string name="btn_make_discoverable">Make Phone Discoverable</string>
+    <string name="desc_make_discoverable">Allow your laptop to find and pair with this phone</string>
+
+    <!-- Typing Feedback Settings -->
+    <string name="section_feedback">Typing &amp; Feedback</string>
+    <string name="setting_haptic_title">Vibration / Haptic Feedback</string>
+    <string name="setting_haptic_desc">Tactile vibration pulse on each keypress</string>
+    <string name="setting_sound_title">Mechanical Key Click Sounds</string>
+    <string name="setting_sound_desc">Audio click effect when pressing keys</string>
+    <string name="setting_keep_awake_title">Keep Screen Awake</string>
+    <string name="setting_keep_awake_desc">Prevent screen timeout while using the keyboard</string>
+
+    <!-- Platform Layout -->
+    <string name="section_platform">OS Keyboard Layout</string>
+    <string name="setting_os_mode_title">OS Key Labels</string>
+    <string name="setting_os_mode_desc">Switch modifier key labels between Windows/Linux (Win/Alt) and macOS (Cmd ⌘ / Opt ⌥)</string>
+
+    <!-- About Section -->
+    <string name="section_about">About &amp; Developer</string>
+    <string name="about_developer_title">Lead Developer</string>
+    <string name="about_version_title">Application Version</string>
+    <string name="about_compatibility_title">Cross-Platform Support</string>
+    <string name="about_compatibility_desc">Works with Windows 10/11, macOS (Apple Silicon &amp; Intel), and Linux (Ubuntu, Fedora, Arch, etc.) using the standard Bluetooth HID profile.</string>
+    <string name="quick_guide_title">Quick Pairing Guide</string>
+    <string name="quick_guide_desc">1. On your laptop, open Bluetooth settings.\n2. Tap \"Make Phone Discoverable\" or scan for your laptop here.\n3. Pair the devices.\n4. Once paired, tap the laptop in the list to connect!\n5. You can now type directly into any app on your laptop.</string>
+</resources>

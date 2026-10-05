@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light & White Theme Backgrounds -->
+    <color name="bg_keyboard_dark">#F1F5F9</color>      <!-- App window background (Slate 100) -->
+    <color name="bg_keyboard_deck">#E2E8F0</color>      <!-- Keyboard chassis deck (Slate 200) -->
+    <color name="bg_surface">#FFFFFF</color>            <!-- Clean white surface -->
+    <color name="bg_surface_card">#FFFFFF</color>       <!-- Card background -->
+
+    <!-- Light Theme Key Caps -->
+    <color name="key_base">#FFFFFF</color>              <!-- White key surface -->
+    <color name="key_border">#CBD5E1</color>            <!-- Subtle key border (Slate 300) -->
+    <color name="key_shadow">#94A3B8</color>            <!-- 3D depth shadow (Slate 400) -->
+    <color name="key_pressed">#DBEAFE</color>           <!-- Soft blue pressed tint -->
+    <color name="key_accent">#2563EB</color>            <!-- Brand blue accent -->
+    <color name="key_accent_glow">#202563EB</color>
+
+    <!-- Modifier Keys (Shift, Ctrl, Alt, Caps, etc.) -->
+    <color name="key_modifier_base">#F8FAFC</color>     <!-- Soft cool gray for modifiers -->
+    <color name="key_modifier_active">#2563EB</color>   <!-- Vibrant active blue when toggled -->
+    <color name="key_accent_action">#4F46E5</color>
+    <color name="key_accent_enter">#2563EB</color>      <!-- Modern blue Enter key -->
+
+    <!-- Text & Labels -->
+    <color name="text_primary">#0F172A</color>          <!-- Dark slate text (Slate 900) -->
+    <color name="text_secondary">#334155</color>        <!-- Slate 700 -->
+    <color name="text_muted">#64748B</color>            <!-- Slate 500 -->
+    <color name="text_accent">#2563EB</color>
+
+    <!-- Status Indicators -->
+    <color name="status_connected">#16A34A</color>      <!-- Crisp Green -->
+    <color name="status_connected_bg">#DCFCE7</color>   <!-- Light Green pill -->
+    <color name="status_disconnected">#DC2626</color>   <!-- Crisp Red -->
+    <color name="status_disconnected_bg">#FEE2E2</color><!-- Light Red pill -->
+    <color name="status_connecting">#D97706</color>
+
+    <!-- Brand -->
+    <color name="primary">#2563EB</color>
+    <color name="primary_variant">#1D4ED8</color>
+    <color name="secondary">#0EA5E9</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

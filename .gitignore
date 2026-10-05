@@ -1,0 +1,35 @@
+# Built application files
+*.apk
+*.aab
+*.ap_
+
+# Allow the official pre-built APK in root so GitHub visitors can download it directly:
+!BT_Laptop_Keyboard.apk
+
+# Gradle and build output directories
+.gradle/
+build/
+app/build/
+**/build/
+
+# Local machine configuration (SDK path, personal secrets)
+local.properties
+
+# Android Studio and IDE configurations
+.idea/
+*.iml
+.shelf/
+*.ipr
+*.iws
+
+# OS-specific metadata
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Native build and profiling
+.externalNativeBuild/
+.cxx/
+captures/
