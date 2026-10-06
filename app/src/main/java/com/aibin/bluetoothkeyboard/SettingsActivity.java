@@ -33,6 +33,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.aibin.bluetoothkeyboard.bluetooth.BluetoothDeviceAdapter;
 import com.aibin.bluetoothkeyboard.bluetooth.BluetoothHidManager;
 import com.aibin.bluetoothkeyboard.util.PreferencesManager;
+import com.aibin.bluetoothkeyboard.util.UpdateManager;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.switchmaterial.SwitchMaterial;
@@ -200,6 +201,11 @@ public class SettingsActivity extends AppCompatActivity {
         } else {
             rbWindows.setChecked(true);
         }
+
+        TextView tvAppVersion = findViewById(R.id.tvAppVersion);
+        if (tvAppVersion != null) {
+            tvAppVersion.setText("v" + UpdateManager.getInstance(this).getCurrentVersionName());
+        }
     }
 
     @SuppressLint("MissingPermission")
@@ -260,6 +266,13 @@ public class SettingsActivity extends AppCompatActivity {
                 preferencesManager.setOsMode("windows");
             }
         });
+
+        MaterialButton btnCheckUpdate = findViewById(R.id.btnCheckUpdate);
+        if (btnCheckUpdate != null) {
+            btnCheckUpdate.setOnClickListener(v ->
+                UpdateManager.getInstance(SettingsActivity.this).checkForUpdates(SettingsActivity.this, true)
+            );
+        }
     }
 
     @SuppressLint("MissingPermission")
@@ -455,6 +468,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
         updateHidStatus();
         refreshDeviceLists();
+        UpdateManager.getInstance(this).resumePendingInstall(this);
     }
 
     @Override

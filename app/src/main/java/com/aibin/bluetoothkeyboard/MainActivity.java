@@ -20,6 +20,7 @@ import com.aibin.bluetoothkeyboard.model.HidKeyCodes;
 import com.aibin.bluetoothkeyboard.model.KeyDef;
 import com.aibin.bluetoothkeyboard.util.PreferencesManager;
 import com.aibin.bluetoothkeyboard.util.SoundHapticHelper;
+import com.aibin.bluetoothkeyboard.util.UpdateManager;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.HashMap;
@@ -58,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         setupKeyListeners();
         setupBluetoothListener();
         enableFullscreenImmersive();
+
+        // Check for updates from GitHub releases asynchronously on open
+        UpdateManager.getInstance(this).checkForUpdates(this, false);
     }
 
     @Override
@@ -71,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         if (hidManager.isBluetoothEnabled()) {
             hidManager.registerHidDevice();
         }
+
+        UpdateManager.getInstance(this).resumePendingInstall(this);
     }
 
     @Override
@@ -426,6 +432,14 @@ public class MainActivity extends AppCompatActivity {
         btnDismiss.setOnClickListener(v -> disconnectedDialog.dismiss());
 
         disconnectedDialog.show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == UpdateManager.REQUEST_CODE_INSTALL_PERMISSION) {
+            UpdateManager.getInstance(this).resumePendingInstall(this);
+        }
     }
 
     @Override

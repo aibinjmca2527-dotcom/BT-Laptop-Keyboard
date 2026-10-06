@@ -17,6 +17,7 @@
 - **Active / Inactive Keyboard States:** Initially, keys prompt for connection when not paired. Once connected, keys illuminate and send real-time keystrokes.
 - **Sleek Mechanical Aesthetic:** Brushed dark theme, 3D mechanical bevels, glowing pressed states, and responsive key elevation.
 - **Haptic & Audio Feedback:** Real-time tactile vibration pulse and mechanical click sounds on every key press.
+- **In-App Auto Updater:** Automatically checks GitHub Releases for new updates on launch, shows changelogs, downloads the APK with live progress, and triggers installation seamlessly.
 - **Dynamic OS Labels:** Instantly switch between Windows/Linux (`Win` / `Alt`) and macOS (`Cmd ⌘` / `Opt ⌥`) modifier key labels.
 - **Keep Screen Awake:** Prevents phone timeout during typing sessions.
 
@@ -83,11 +84,22 @@ adb install -r BT_Laptop_Keyboard.apk
 
 Located in the **Settings** menu:
 - **Bluetooth Discovery & Device Manager:** Pair, scan, connect, or disconnect.
+- **Check for Updates:** Manual one-tap check against GitHub releases to download and install new versions directly.
 - **Vibration / Haptic Feedback:** Turn on/off tactile keypress vibrations.
 - **Mechanical Key Click Sounds:** Toggle audio key clicks.
 - **Keep Screen Awake:** Toggle `FLAG_KEEP_SCREEN_ON` so your phone doesn't sleep while typing.
 - **OS Key Labels:** Radio toggle between `Windows / Linux` and `macOS (Cmd / Opt)`.
 - **Developer & Version Info:** Displays developer name (**Aibin Joseph**) and version (`1.0.0`).
+
+---
+
+## 🔄 In-App GitHub Auto-Updater
+
+The app features an integrated updater connected to the GitHub repository:
+- **Automatic Check:** Background check against GitHub Releases API on app startup.
+- **Update Modal:** Displays release tag, title, download size, and release notes / changelog.
+- **Download Manager:** Background download with real-time percentage and byte progress, redirect handling, and cancel option.
+- **Seamless Install:** Uses Android `FileProvider` to launch package installation directly, automatically requesting permission if needed.
 
 ---
 
@@ -109,13 +121,18 @@ c:\keyboard_app\
 │   │   │   │   └── KeyDef.java             (Key mapping & modifier metadata)
 │   │   │   └── util\
 │   │   │       ├── PreferencesManager.java (Settings persistence)
-│   │   │       └── SoundHapticHelper.java  (Audio click & haptic vibration feedback)
+│   │   │       ├── SoundHapticHelper.java  (Audio click & haptic vibration feedback)
+│   │   │       └── UpdateManager.java      (GitHub Releases updater & package installer)
 │   │   └── res\
 │   │       ├── layout\
 │   │       │   ├── activity_main.xml       (Complete 75-key laptop keyboard layout)
 │   │       │   ├── activity_settings.xml   (Settings & Bluetooth management)
 │   │       │   ├── dialog_connect_prompt.xml (Disconnected warning popup)
+│   │       │   ├── dialog_update_available.xml (Update release notes & prompt)
+│   │       │   ├── dialog_update_downloading.xml (Download progress dialog)
 │   │       │   └── item_bluetooth_device.xml (Device list item card)
+│   │       ├── xml\
+│   │       │   └── file_paths.xml          (FileProvider path config for APK updates)
 │   │       ├── drawable\                   (Mechanical 3D key states, vectors & styles)
 │   │       └── values\                     (colors.xml, strings.xml, styles.xml, themes.xml)
 │   └── build.gradle
